@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/frame_back"
+        android:layout_width="57.0dip"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout_header_btn"
+        android:gravity="center"
+        />
