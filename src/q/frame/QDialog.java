@@ -1,18 +1,15 @@
 package q.frame;
 
-import q.manager.QWindow;
 import q.util.QApp;
 import android.app.Dialog;
 import android.content.Context;
 import android.view.View;
 import android.view.Window;
-import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -97,7 +94,7 @@ public class QDialog {
 	        ivOut = this.findViewById(R.id.dialog_loading_out);
 	        ivIn = this.findViewById(R.id.dialog_loading_in);
 	        //
-	        LinearInterpolator li = new LinearInterpolator();//�??效果
+	        LinearInterpolator li = new LinearInterpolator();//线性效果
 	        animOut.setDuration(500);
 			animOut.setRepeatCount(Animation.INFINITE);
 			animOut.setInterpolator(li);

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/frame_back"
-        android:layout_width="57.0dip"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/layout_header_btn"
         android:gravity="center"
-        android:src="@drawable/icon_setting"
+        android:paddingLeft="15dip"
+    	android:paddingRight="15dip"
         />
