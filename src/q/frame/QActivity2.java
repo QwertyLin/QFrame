@@ -14,7 +14,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class QActivity extends Activity {
+public class QActivity2 extends Activity {
 	
 	private LayoutInflater inflater;
 	private LinearLayout layoutHeader;
