@@ -1,6 +1,7 @@
 package q.frame;
 
 import q.util.QApp;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.view.View;
@@ -52,13 +53,16 @@ public class QDialog {
 			layoutBtns.addView(btn);
 		}
 		
-		public void addBtnGotIt(){
+		public void addBtnGotIt(final boolean isFinish){
 			Button btn = new Button(ctx);
 			btn.setText("我知道了");
 			btn.setOnClickListener(new android.view.View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
 					cancel();
+					if(isFinish){
+						((Activity)ctx).finish();
+					}
 				}
 			});
 			LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1);

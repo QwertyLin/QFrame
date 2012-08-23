@@ -7,6 +7,7 @@ import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class QLayout {
@@ -17,6 +18,7 @@ public class QLayout {
 
 		public Loading(Context ctx, String text) {
 			super(ctx);
+			this.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT));
 			View v = ((Activity)ctx).getLayoutInflater().inflate(R.layout.layout_loading, null);
 			//
 	        LinearInterpolator li = new LinearInterpolator();//匀速效果
@@ -41,8 +43,9 @@ public class QLayout {
 			this.addView(v);
 		}
 		
-		public void setText(String text){
+		public QLayout.Loading setText(String text){
 			tv.setText(text);
+			return this;
 		}
 	}
 
