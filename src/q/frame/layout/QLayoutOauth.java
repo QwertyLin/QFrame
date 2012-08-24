@@ -527,8 +527,8 @@ public class QLayoutOauth extends RelativeLayout {
 			new Thread(){
 				public void run() {
 					try {
-						JSONObject json = new JSONObject(QHttp.staticGet(urlUserInfo(token)));
-						json = json.getJSONObject("data");
+						JSONObject json = new JSONObject(QHttp.staticGet(urlUserInfoSimple(token, token.getId())));
+						json = json.getJSONObject("data").getJSONArray("info").getJSONObject(0);
 						token.setName(json.getString("nick"));
 						token.setPhoto(json.getString("head") + "/50");
 						QLog.log("nick=" + token.getName() + " head=" + token.getPhoto());
@@ -614,16 +614,37 @@ public class QLayoutOauth extends RelativeLayout {
 			return QHttp.staticPost("https://open.t.qq.com/api/t/add_pic", params.toString(), "-----114975832116442893661388290519", pic);
 		}
 		
-		public static String urlUserInfo(Token token) throws IOException{
+		public static String urlUserInfoSimple(Token token, String id) {
+			return "https://open.t.qq.com/api/user/infos?"
+					+ "oauth_consumer_key=" + CLIENT_ID
+					+ "&access_token=" + token.getToken()
+					+ "&openid=" + token.getId()
+					+ "&clientip=127.0.0.1&oauth_version=2.a&format=json"
+					+ "&fopenids=" + id
+					;
+		}
+		
+		/*public static String urlUserInfo(Token token) {
 			return "https://open.t.qq.com/api/user/info?"
 					+ "oauth_consumer_key=" + CLIENT_ID
 					+ "&access_token=" + token.getToken()
 					+ "&openid=" + token.getId()
 					+ "&clientip=127.0.0.1&oauth_version=2.a&format=json"
 					;
+		}*/
+		
+		public static String urlFriendsIdolistSimple(Token token, int reqnum, int startindex) throws IOException{
+			return "https://open.t.qq.com/api/friends/idollist_s?"
+					+ "oauth_consumer_key=" + CLIENT_ID
+					+ "&access_token=" + token.getToken()
+					+ "&openid=" + token.getId()
+					+ "&clientip=127.0.0.1&oauth_version=2.a&format=json"
+					+ "&reqnum=" + reqnum
+					+ "&startindex=" + startindex
+					;
 		}
 		
-		public static String urlFriends(Token token) throws IOException{
+		/*public static String urlFriends(Token token) throws IOException{
 			return "https://open.t.qq.com/api/friends/idollist?"
 					+ "oauth_consumer_key=" + CLIENT_ID
 					+ "&access_token=" + token.getToken()
@@ -631,7 +652,7 @@ public class QLayoutOauth extends RelativeLayout {
 					+ "&clientip=127.0.0.1&oauth_version=2.a&format=json"
 					+ "&reqnum=30"
 					;
-		}
+		}*/
 	
 	}
 	
