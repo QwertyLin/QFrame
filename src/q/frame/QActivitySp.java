@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.umeng.analytics.MobclickAgent;
 
-public class QActivity extends SherlockActivity {
+public abstract class QActivitySp extends SherlockActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
