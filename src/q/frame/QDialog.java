@@ -1,6 +1,6 @@
 package q.frame;
 
-import q.util.QApp;
+import q.util.QAppSp;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -85,13 +85,12 @@ public class QDialog {
 		
 		public Loading(Context ctx) {
 			super(ctx);
-			QApp qApp = (QApp)ctx.getApplicationContext();
 			//
 			Window window = this.getWindow();
 			window.requestFeature(Window.FEATURE_NO_TITLE);
 			window.setBackgroundDrawableResource(R.color.transparent);
 	        this.setContentView(R.layout.dialog_loading);
-	        FrameLayout.LayoutParams rlp = new FrameLayout.LayoutParams(qApp.getQWindow().getWidth() - 20, RelativeLayout.LayoutParams.WRAP_CONTENT);
+	        FrameLayout.LayoutParams rlp = new FrameLayout.LayoutParams(((QAppSp)ctx.getApplicationContext()).getQWindow().getWidth() - 20, RelativeLayout.LayoutParams.WRAP_CONTENT);
 	        rlp.setMargins(10, 0, 10, 0);
 	        this.findViewById(R.id.dialog_loading_layout).setLayoutParams(rlp);
 	        //
